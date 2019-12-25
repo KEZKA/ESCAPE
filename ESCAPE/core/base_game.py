@@ -7,7 +7,7 @@ class BaseGame:
         pygame.init()
         self.width, self.height = width, height
         self.screen = pygame.display.set_mode((self.width, self.height))
-        self.click = pygame.time.Clock()
+        self.clock = pygame.time.Clock()
         self.FPS = 60
 
     def terminate(self):
