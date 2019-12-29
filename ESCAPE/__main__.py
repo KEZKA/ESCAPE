@@ -1,3 +1,3 @@
-from ESCAPE.my_game import MainGame
+from ESCAPE.escape_game import MainGame
 
 game = MainGame()
