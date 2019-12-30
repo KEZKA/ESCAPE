@@ -1,5 +1,5 @@
-from ESCAPE.sprites.base_sprite import BaseSprite
 import pygame
+from ESCAPE.core.base_sprite import BaseSprite
 
 
 class CrystalSprite(BaseSprite):
