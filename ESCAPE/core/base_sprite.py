@@ -1,21 +1,20 @@
-from ESCAPE.core.utils import load_image
-from ESCAPE.core.base_game import BaseGame
 import pygame
 
-all_sprites = pygame.sprite.Group()
+from ESCAPE.core.utils import load_image
 
 
 class BaseSprite(pygame.sprite.Sprite):
-    def __init__(self):
-        super().__init__(all_sprites)
-
-        self.FPS = BaseGame(700, 700).FPS
+    def __init__(self, game, images, x, y, size=None):
+        super().__init__(game.all_sprites)
+        self.FPS = game.FPS
         self.ticks = 0
-
+        self.cur_frame = 0
         self.sprites = []
         self.anim_fps = 20
+        self.append_image(images, size)
+        self.rect = self.rect.move(x,y)
 
-    def append_image(self, images, size=-1):
+    def append_image(self, images, size=None):
         for image in images:
             self.sprites.append(load_image(image, size))
 
