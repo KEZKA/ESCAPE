@@ -13,6 +13,7 @@ class BaseSprite(pygame.sprite.Sprite):
         self.anim_fps = 20
         self.append_image(images, size)
         self.rect = self.rect.move(x,y)
+        self.image = self.sprites[self.cur_frame]
 
     def append_image(self, images, size=None):
         for image in images:
