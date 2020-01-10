@@ -4,6 +4,7 @@ import pygame
 class BaseGameStates:
     def __init__(self, game):
         self.game = game
+        self.screen = self.game.screen
         self.is_running = False
 
     def start(self):
