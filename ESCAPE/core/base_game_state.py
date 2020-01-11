@@ -1,11 +1,18 @@
 import pygame
 
+from ESCAPE.sprites.arrow import Arrow
+
 
 class BaseGameStates:
     def __init__(self, game):
+        self.all_sprites = pygame.sprite.Group()
         self.game = game
+        self.FPS = game.FPS
         self.screen = self.game.screen
+        self.arrow = pygame.sprite.Group()
+        Arrow(self, 0,0)
         self.is_running = False
+        pygame.mouse.set_visible(False)
 
     def start(self):
         self.is_running = True
@@ -27,10 +34,11 @@ class BaseGameStates:
         if event.type == pygame.QUIT:
             self.stop()
             self.game.terminate()
+        if event.type == pygame.MOUSEMOTION:
+            self.arrow.update(event.pos)
         self.handle_event()
 
     def render(self):
-        # отрисовка
         pass
 
     def loop(self):

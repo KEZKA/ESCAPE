@@ -12,7 +12,6 @@ class StartScreen(BaseGameStates):
         super().__init__(game)
         self.FPS = game.FPS
         self.crystal_group = pygame.sprite.Group()
-        self.all_sprites = pygame.sprite.Group()
         self.button_group = pygame.sprite.Group()
         CrystalSprite(self, 0, 400)
         CrystalSprite(self, 400, 450, size=(250, 250), angle=30)
@@ -35,3 +34,4 @@ class StartScreen(BaseGameStates):
         self.crystal_group.draw(self.screen)
         self.crystal_group.update()
         self.button_group.draw(self.screen)
+        self.arrow.draw(self.screen)
