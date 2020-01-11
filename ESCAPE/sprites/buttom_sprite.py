@@ -14,6 +14,12 @@ class ButtomSprite(BaseSprite):
         super().__init__(game, images, x, y, size, angle=0)
         self.add(game.buttom_group)
         self.anim_fps = 0
+<<<<<<< HEAD
+=======
+        font = pygame.font.Font(None, 30)
+        text = font.render(text, 1, pygame.Color('white'))
+        self.img.blit(text, (10,  10))
+>>>>>>> KEZKA
 
     def mouse(self):
         self.img.fill(pygame.Color(40, 119, 158), rect=self.interior_rect)
