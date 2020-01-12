@@ -25,8 +25,8 @@ class StartScreen(BaseGameStates):
         for _ in range(100):
             x, y = random.randint(0, 700), random.randint(0, 700)
             CrystalSprite(self, x, y, size=(5, 5))
-        ButtonSprite(self, 200, 200, (300, 50), 'Начать')
-        ButtonSprite(self, 200, 300, (300, 50), 'Титры')
+        ButtonSprite(self, 200, 200, (300, 50), 'Начать', self.start_bt)
+        ButtonSprite(self, 200, 300, (300, 50), 'Титры', self.titres)
 
     def render(self):
         super().render()
@@ -35,3 +35,28 @@ class StartScreen(BaseGameStates):
         self.crystal_group.update()
         self.button_group.draw(self.screen)
         self.arrow.draw(self.screen)
+
+    def handle_event(self, event):
+        super().handle_event(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == pygame.BUTTON_LEFT:
+                self.button_group.update(event)
+        if event.type == pygame.MOUSEBUTTONUP:
+            if event.button == pygame.BUTTON_LEFT:
+                self.button_group.update(event)
+
+    def start_bt(self):
+        self.stop()
+        self.btn = 'start'
+
+    def titres(self):
+        self.stop()
+        self.btn = 'titres'
+
+    def execution(self):
+        super().execution()
+        return self.btn
+
+    def start(self):
+        self.is_running = True
+        return self.execution()

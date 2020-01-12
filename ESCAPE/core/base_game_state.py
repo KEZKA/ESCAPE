@@ -10,7 +10,7 @@ class BaseGameStates:
         self.FPS = game.FPS
         self.screen = self.game.screen
         self.arrow = pygame.sprite.Group()
-        Arrow(self, 0,0)
+        Arrow(self, 0, 0)
         self.is_running = False
         pygame.mouse.set_visible(False)
 
@@ -36,7 +36,7 @@ class BaseGameStates:
             self.game.terminate()
         if event.type == pygame.MOUSEMOTION:
             self.arrow.update(event.pos)
-        self.handle_event()
+        self.handle_event(event)
 
     def render(self):
         pass
@@ -45,6 +45,6 @@ class BaseGameStates:
         # изменение величин при каждой отрисовке(или нет)
         pass
 
-    def handle_event(self):
+    def handle_event(self, event):
         # обработка событий
         pass

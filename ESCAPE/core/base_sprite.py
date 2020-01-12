@@ -15,6 +15,7 @@ class BaseSprite(pygame.sprite.Sprite):
         self.rect = self.sprites[0].get_rect()
         self.rect.x = x
         self.rect.y = y
+        self.game = game
         self.image = self.sprites[self.cur_frame]
 
     def append_image(self, images, size, angle):

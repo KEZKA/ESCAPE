@@ -1,3 +1,5 @@
+import pygame
+
 from ESCAPE.core.base_sprite import BaseSprite
 
 
@@ -10,4 +12,3 @@ class Arrow(BaseSprite):
     def update(self, pos):
         self.rect.x = pos[0]
         self.rect.y = pos[1]
-        print(self.rect.x, self.rect.y)
