@@ -9,7 +9,11 @@ class MainGame(BaseGame):
         super().__init__(700, 700)
         self.menu = StartScreen(self)
         self.all_sprites = pygame.sprite.Group()
-        self.start_game()
+        self.start_menu()
 
-    def start_game(self):
-        self.menu.start()
+    def start_menu(self):
+        a = self.menu.start()
+        if a == 'titres':
+            pass
+        elif a == 'start':
+            pass
