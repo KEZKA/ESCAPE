@@ -10,9 +10,9 @@ class BaseGameStates:
         self.FPS = game.FPS
         self.screen = self.game.screen
         self.arrow = pygame.sprite.Group()
-        Arrow(self, 0, 0)
-        self.is_running = False
+        self.arrow_sprite = Arrow(self, 0, 0)
         pygame.mouse.set_visible(False)
+        self.is_running = False
 
     def start(self):
         self.is_running = True
