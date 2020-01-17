@@ -1,3 +1,5 @@
+import pygame
+
 from ESCAPE.core.base_sprite import BaseSprite
 
 
@@ -7,5 +9,10 @@ class RoomSprite(BaseSprite):
         super().__init__(game, images, x, y, size, angle)
 
     def check(self, x, y):
-        return not (0 <= y <= 120 and x < 270) and not (300 <= y <= 525 and 550 < x) \
-               and not (550 <= y and x < 483) and (200 <= x <= 640 and 0 <= y <= 670)
+        a = [pygame.Rect(0, 0, 700, 202),
+             pygame.Rect(0, 202, 120, 288),
+             pygame.Rect(571, 202, 129, 85),
+             pygame.Rect(0, 675, 470, 25),
+             pygame.Rect(561, 675, 139, 25),
+             pygame.Rect(163, 579, 225, 121)]
+        return not any([i.collidepoint(x,y) for i in a])
