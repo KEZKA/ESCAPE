@@ -8,12 +8,13 @@ class BaseRubbishSprite(BaseSprite):
         self.in_hand = False
         images = [image]
         size = (25, 25)
+
         super().__init__(game, images, x, y, size, angle)
-        if self.game.screen_img.check(x, y) and self.game.screen_img.check(x+20, y+20):
+        if not pygame.sprite.collide_mask(self, game.rubbish_room):
             self.add(game.rubbish_group)
 
     def update(self, event):
-        if not self.in_hand :
+        if not self.in_hand:
             k = pygame.sprite.spritecollideany(self, self.game.hero_group)
             if k:
                 if event.type == pygame.KEYDOWN:
@@ -23,14 +24,11 @@ class BaseRubbishSprite(BaseSprite):
                         self.game.hero.rubbish += 1
 
 
-
 class NoteInRubbish(BaseRubbishSprite):
     def __init__(self, game, x, y):
-        super().__init__(game, x, y, 'images/note_in_rubbish.png')
-
-
+        super().__init__(game, x, y, 'images/rubbish/note_in_rubbish.png')
 
 
 class RubbishSprite(BaseRubbishSprite):
     def __init__(self, game, x, y, angle=0):
-        super().__init__(game, x, y, 'images/rubbish1.png')
+        super().__init__(game, x, y, 'images/rubbish/rubbish1.png')
