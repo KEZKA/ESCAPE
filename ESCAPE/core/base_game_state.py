@@ -13,7 +13,6 @@ class BaseGameStates:
         self.arrow_sprite = Arrow(self, 0, 0)
         pygame.mouse.set_visible(False)
         self.is_running = False
-        pygame.key.get_repeat()
 
     def start(self):
         self.is_running = True
@@ -38,7 +37,7 @@ class BaseGameStates:
         if event.type == pygame.MOUSEMOTION:
             self.arrow.update(event.pos)
         if event.type == pygame.MOUSEBUTTONDOWN:
-            print(event.pos)
+            pass
         self.handle_event(event)
 
     def render(self):
