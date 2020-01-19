@@ -1,18 +1,16 @@
 import pygame
 
 from ESCAPE.core.base_sprite import BaseSprite
+from ESCAPE.core.utils import load_image
 
 
 class RoomSprite(BaseSprite):
-    def __init__(self, game, x, y, size=None, angle=0):
-        images = ['images/room.png']
-        super().__init__(game, images, x, y, size, angle)
+    def __init__(self, game, x, y, size=None, mask='images/room/room_hero_mask.png'):
+        images = ['images/room/room.png']
 
-    def check(self, x, y):
-        a = [pygame.Rect(0, 0, 700, 202),
-             pygame.Rect(0, 202, 120, 288),
-             pygame.Rect(571, 202, 129, 85),
-             pygame.Rect(0, 675, 470, 25),
-             pygame.Rect(561, 675, 139, 25),
-             pygame.Rect(163, 579, 225, 121)]
-        return not any([i.collidepoint(x, y) for i in a]) and 0 < x < 700 and 0 < y < 700
+        self.image = load_image(mask)
+        self.rect = self.image.get_rect()
+        self.mask = pygame.mask.from_surface(self.image)
+        self.rect.bottom = 700
+
+        super().__init__(game, images, x, y, size)
