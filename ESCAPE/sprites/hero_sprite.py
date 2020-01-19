@@ -10,6 +10,7 @@ class HeroSprite(BaseSprite):
         # TODO handel events
         super().__init__(game, images, x, y, size)
         self.add(game.hero_group)
+        self.rubbish = 0
         self.anim_fps = 10
         self.pos = (x, y)
 
@@ -20,14 +21,18 @@ class HeroSprite(BaseSprite):
             new_x, new_y = x, y
             if event.key == pygame.K_RIGHT:
                 new_x, new_y = x + step, y
-            if event.key == pygame.K_LEFT:
+            elif event.key == pygame.K_LEFT:
                 new_x, new_y = x - step, y
-            if event.key == pygame.K_UP:
+            elif event.key == pygame.K_UP:
                 new_x, new_y = x, y - step
-            if event.key == pygame.K_DOWN:
+            elif event.key == pygame.K_DOWN:
                 new_x, new_y = x, y + step
-            if 470 < new_x < 561 and 675 < y:
+            elif event.key == pygame.K_SPACE:
+                if 600 < x < 670 and 470 < y<600:
+                    self.rubbish = 0
+            if 470 < new_x < 561 and 675 < new_y:
                 self.game.stop()
             if self.game.screen_img.check(new_x + 30, new_y + 110):
                 self.rect.x, self.rect.y = new_x, new_y
                 self.pos = (new_x, new_y)
+
