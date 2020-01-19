@@ -18,6 +18,7 @@ class HeroSprite(BaseSprite):
         self.step = 10
         self.add(game.hero_group)
         self.anim_fps = 10
+        self.rubbish = 0
         pygame.key.set_repeat(10)
 
     def get_event(self, event):
@@ -54,3 +55,25 @@ class HeroSprite(BaseSprite):
             new_x, new_y = x, y - step
         self.rect.x, self.rect.y = new_x, new_y
         self.pos = (new_x, new_y)
+
+    def get_event_room(self, event):
+        step = 10
+        if event.type == pygame.KEYDOWN:
+            x, y = self.rect.x, self.rect.y
+            new_x, new_y = x, y
+            if event.key == pygame.K_RIGHT:
+                new_x, new_y = x + step, y
+            elif event.key == pygame.K_LEFT:
+                new_x, new_y = x - step, y
+            elif event.key == pygame.K_UP:
+                new_x, new_y = x, y - step
+            elif event.key == pygame.K_DOWN:
+                new_x, new_y = x, y + step
+            elif event.key == pygame.K_SPACE:
+                if 600 < x < 670 and 470 < y<600:
+                    self.rubbish = 0
+            if 470 < new_x < 561 and 675 < new_y:
+                self.game.stop()
+            if self.game.screen_img.check(new_x + 30, new_y + 110):
+                self.rect.x, self.rect.y = new_x, new_y
+                self.pos = (new_x, new_y)

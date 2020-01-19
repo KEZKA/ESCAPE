@@ -22,8 +22,8 @@ class PersonalRoom(BaseGameStates):
         CrystalSprite(self, 597, 19, (30, 30))
         CrystalSprite(self, 570, 45, (40, 40), angle=30)
         CrystalSprite(self, 615, 70, (30, 30), angle=-20)
-        self.hero = HeroSprite(self, 350, 350, size=(60, 120))
-        while len(self.rubbish_group) != 200:
+        self.hero = HeroSprite(self, 670, 350, size=(60, 120))
+        while len(self.rubbish_group) != 50:
             x, y, angle = randint(0, 700), randint(0, 700), randint(0, 360)
             RubbishSprite(self, x, y, angle=angle)
 
