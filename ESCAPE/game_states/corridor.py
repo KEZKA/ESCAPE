@@ -2,7 +2,6 @@ import pygame
 
 from ESCAPE.core.base_game_state import BaseGameStates
 from ESCAPE.sprites.corridor_sprite import CorridorSprite
-from ESCAPE.sprites.crystal_sprite import CrystalSprite
 from ESCAPE.sprites.hero_sprite import HeroSprite
 
 
@@ -31,3 +30,5 @@ class Corridor(BaseGameStates):
     def handle_event(self, event):
         super().handle_event(event)
         self.hero.get_event(event)
+        if pygame.sprite.collide_mask(self.hero, self.corridor):
+            self.hero.anti_move()
