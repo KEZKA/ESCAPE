@@ -5,17 +5,19 @@ import pygame
 from ESCAPE.core.base_game_state import BaseGameStates
 from ESCAPE.sprites.crystal_sprite import CrystalSprite
 from ESCAPE.sprites.hero_sprite import HeroSprite
+from ESCAPE.sprites.notes_on_board import Notes
 from ESCAPE.sprites.room_sprite import RoomSprite
-from ESCAPE.sprites.rubbish_sprites import  RubbishSprite
+from ESCAPE.sprites.rubbish_sprites import RubbishSprite
 
 
 class PersonalRoom(BaseGameStates):
-    def __init__(self, game):
+    def __init__(self, game, code):
         super().__init__(game)
         self.FPS = game.FPS
         self.hero_group = pygame.sprite.Group()
         self.crystal_group = pygame.sprite.Group()
         self.rubbish_group = pygame.sprite.Group()
+        self.notes = Notes(self, code)
 
         self.rubbish_room = RoomSprite(self, 0, 0, mask='images/room/room_rubbish_mask.png')
         self.screen_img = RoomSprite(self, 0, 0, mask='images/room/room_hero_mask.png')
@@ -36,6 +38,8 @@ class PersonalRoom(BaseGameStates):
         self.crystal_group.draw(self.screen)
         self.rubbish_group.draw(self.screen)
         self.hero_group.draw(self.screen)
+        self.notes.draw()
+
 
     def handle_event(self, event):
         super().handle_event(event)
@@ -44,7 +48,6 @@ class PersonalRoom(BaseGameStates):
             self.hero.anti_move()
         self.rubbish_group.update(event)
         self.crystal_group.update()
-        x,y = self.hero.pos
+        x, y = self.hero.pos
         if y + 120 > 690:
             self.stop()
-
