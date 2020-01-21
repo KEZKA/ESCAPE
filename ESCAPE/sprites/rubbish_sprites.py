@@ -3,10 +3,10 @@ import pygame
 from ESCAPE.core.base_sprite import BaseSprite
 
 
-class BaseRubbishSprite(BaseSprite):
-    def __init__(self, game, x, y, image, angle=0):
+class RubbishSprite(BaseSprite):
+    def __init__(self, game, x, y, angle=0):
         self.in_hand = False
-        images = [image]
+        images = ['images/things/rubbish.png']
         size = (25, 25)
 
         super().__init__(game, images, x, y, size, angle)
@@ -23,12 +23,3 @@ class BaseRubbishSprite(BaseSprite):
                         self.game.rubbish_group.remove(self)
                         self.game.hero.rubbish += 1
 
-
-class NoteInRubbish(BaseRubbishSprite):
-    def __init__(self, game, x, y):
-        super().__init__(game, x, y, 'images/rubbish/note_in_rubbish.png')
-
-
-class RubbishSprite(BaseRubbishSprite):
-    def __init__(self, game, x, y, angle=0):
-        super().__init__(game, x, y, 'images/rubbish/rubbish1.png')

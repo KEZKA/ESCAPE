@@ -6,7 +6,7 @@ from ESCAPE.core.base_game_state import BaseGameStates
 from ESCAPE.sprites.crystal_sprite import CrystalSprite
 from ESCAPE.sprites.hero_sprite import HeroSprite
 from ESCAPE.sprites.room_sprite import RoomSprite
-from ESCAPE.sprites.rubbish_sprites import NoteInRubbish, RubbishSprite
+from ESCAPE.sprites.rubbish_sprites import  RubbishSprite
 
 
 class PersonalRoom(BaseGameStates):
@@ -20,7 +20,6 @@ class PersonalRoom(BaseGameStates):
         self.rubbish_room = RoomSprite(self, 0, 0, mask='images/room/room_rubbish_mask.png')
         self.screen_img = RoomSprite(self, 0, 0, mask='images/room/room_hero_mask.png')
 
-        NoteInRubbish(self, 600, 580)
         CrystalSprite(self, 590, 15, (50, 50))
         CrystalSprite(self, 597, 19, (30, 30))
         CrystalSprite(self, 570, 45, (40, 40), angle=30)
