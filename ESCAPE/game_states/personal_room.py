@@ -25,7 +25,7 @@ class PersonalRoom(BaseGameStates):
         CrystalSprite(self, 597, 19, (30, 30))
         CrystalSprite(self, 570, 45, (40, 40), angle=30)
         CrystalSprite(self, 615, 70, (30, 30), angle=-20)
-        self.hero = HeroSprite(self, 600, 350, size=(60, 120))
+        self.hero = HeroSprite(self, 350, 350, size=(60, 120))
         while len(self.rubbish_group) != 50:
             x, y, angle = randint(0, 700), randint(0, 700), randint(0, 360)
             RubbishSprite(self, x, y, angle=angle)
@@ -40,10 +40,12 @@ class PersonalRoom(BaseGameStates):
 
     def handle_event(self, event):
         super().handle_event(event)
-        self.hero.get_event(event)
+        self.hero.get_event_room(event)
         if pygame.sprite.collide_mask(self.hero, self.screen_img):
             self.hero.anti_move()
         self.rubbish_group.update(event)
         self.crystal_group.update()
-
+        x,y = self.hero.pos
+        if y + 120 > 690:
+            self.stop()
 
