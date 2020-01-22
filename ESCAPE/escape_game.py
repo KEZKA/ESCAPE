@@ -33,3 +33,4 @@ class MainGame(BaseGame):
     def game(self):
         while not self.door:
             self.room.start()
+            self.corridor.start()

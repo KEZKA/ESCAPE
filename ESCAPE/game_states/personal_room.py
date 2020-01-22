@@ -17,7 +17,7 @@ class PersonalRoom(BaseGameStates):
     def __init__(self, game, code):
         super().__init__(game)
         self.FPS = game.FPS
-        # TODO self.sound = pygame.mixer.Sound('put.wav')
+        self.sound = pygame.mixer.Sound(fullname('music/put.ogg'))
 
 
         self.hero_group = pygame.sprite.Group()
@@ -55,8 +55,7 @@ class PersonalRoom(BaseGameStates):
         self.rubbish_group.update(event)
         self.clothes_group.update(event)
         self.crystal_group.update()
-        x,y = self.hero.pos
+        self.notes.update(len(self.clothes_group), len(self.rubbish_group))
+        x, y = self.hero.pos
         if y + 120 > 690:
             self.stop()
-            self.hero.pos = x, y - 100
-            self.hero.rect.y -= 100

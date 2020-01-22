@@ -72,8 +72,8 @@ class HeroSprite(BaseSprite):
             if event.key == pygame.K_SPACE:
                 if 600 < x < 670 and 470 < y < 600:
                     self.rubbish = 0
-                    #self.game.sound.play()
+                    self.game.sound.play()
                 elif x > 580 and y < 250:
                     self.clothes = 0
-                    #self.game.sound.play()
+                    self.game.sound.play()
         self.get_event(event)
