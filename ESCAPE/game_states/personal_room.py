@@ -60,3 +60,5 @@ class PersonalRoom(BaseGameStates):
         x, y = self.hero.pos
         if y + 120 > 690:
             self.stop()
+            self.hero.rect.y -= 100
+            self.hero.pos = x, y - 100

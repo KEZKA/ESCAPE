@@ -36,6 +36,7 @@ class HeroSprite(BaseSprite):
             new_x, new_y = x, y
             if self.game.game.door:
                 if event.key in self.keys:
+                    pygame.key.set_repeat(0)
                     self.personal_code.append(self.keys[event.key])
                     self.personal_code = self.personal_code[1:]
             if event.key == pygame.K_RIGHT:
