@@ -22,4 +22,3 @@ class RubbishSprite(BaseSprite):
                         self.in_hand = True
                         self.game.rubbish_group.remove(self)
                         self.game.hero.rubbish += 1
-

@@ -6,7 +6,7 @@ from ESCAPE.core.base_game_state import BaseGameStates
 from ESCAPE.sprites.crystal_sprite import CrystalSprite
 from ESCAPE.sprites.hero_sprite import HeroSprite
 from ESCAPE.sprites.room_sprite import RoomSprite
-from ESCAPE.sprites.rubbish_sprites import  RubbishSprite
+from ESCAPE.sprites.rubbish_sprites import RubbishSprite
 
 
 class PersonalRoom(BaseGameStates):
@@ -44,7 +44,8 @@ class PersonalRoom(BaseGameStates):
             self.hero.anti_move()
         self.rubbish_group.update(event)
         self.crystal_group.update()
-        x,y = self.hero.pos
+        x, y = self.hero.pos
         if y + 120 > 690:
             self.stop()
-
+            self.hero.pos = x, y - 100
+            self.hero.rect.y -= 100

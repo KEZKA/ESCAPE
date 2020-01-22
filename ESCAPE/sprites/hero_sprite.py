@@ -6,14 +6,14 @@ from ESCAPE.core.base_sprite import BaseSprite
 class HeroSprite(BaseSprite):
     def __init__(self, game, x, y, size=None):
         images = ['images/hero.png']
-        # TODO numerous pictures of a hero and a standalone directory
-        # TODO handle events
 
         super().__init__(game, images, x, y, size)
         self.rect = self.image.get_rect()
         self.mask = pygame.mask.from_surface(self.image)
         self.rect.x = x
         self.rect.y = y
+        self.general_x = x
+        self.general_y = y
         self.pos = (x, y)
         self.last_move = None
         self.step = 10
@@ -29,15 +29,19 @@ class HeroSprite(BaseSprite):
             new_x, new_y = x, y
             if event.key == pygame.K_RIGHT:
                 new_x, new_y = x + step, y
+                self.general_x += step
                 self.last_move = 'right'
             if event.key == pygame.K_LEFT:
                 new_x, new_y = x - step, y
+                self.general_x -= step
                 self.last_move = 'left'
             if event.key == pygame.K_UP:
                 new_x, new_y = x, y - step
+                self.general_y -= step
                 self.last_move = 'up'
             if event.key == pygame.K_DOWN:
                 new_x, new_y = x, y + step
+                self.general_y += step
                 self.last_move = 'down'
             self.rect.x, self.rect.y = new_x, new_y
             self.pos = (new_x, new_y)
@@ -48,12 +52,16 @@ class HeroSprite(BaseSprite):
         new_x, new_y = x, y
         if self.last_move == 'right':
             new_x, new_y = x - step, y
+            self.general_x -= step
         if self.last_move == 'left':
             new_x, new_y = x + step, y
+            self.general_x += step
         if self.last_move == 'up':
             new_x, new_y = x, y + step
+            self.general_y += step
         if self.last_move == 'down':
             new_x, new_y = x, y - step
+            self.general_y -= step
         self.rect.x, self.rect.y = new_x, new_y
         self.pos = (new_x, new_y)
 

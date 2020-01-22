@@ -15,7 +15,14 @@ class Corridor(BaseGameStates):
         self.hero_group = pygame.sprite.Group()
 
         self.corridor = CorridorSprite(self, 0, 0)
-        self.hero = HeroSprite(self, 180, 240)
+        self.hero = HeroSprite(self, 2180, 2340)
+
+    def loop(self):
+        self.hero.update()
+        self.game.camera.update(self.hero.rect.x, self.hero.rect.y)
+        self.game.camera.apply(self.hero)
+        for tile in self.corridor_group.sprites():
+            self.game.camera.apply(tile)
 
     def render(self):
         super().render()
@@ -32,3 +39,7 @@ class Corridor(BaseGameStates):
         self.hero.get_event(event)
         if pygame.sprite.collide_mask(self.hero, self.corridor):
             self.hero.anti_move()
+        if self.hero.general_x > 2350:
+            self.stop()
+            self.hero.general_x -= 100
+            self.hero.rect.x -= 100
