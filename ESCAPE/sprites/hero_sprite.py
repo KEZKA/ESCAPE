@@ -20,6 +20,7 @@ class HeroSprite(BaseSprite):
         self.add(game.hero_group)
         self.anim_fps = 10
         self.rubbish = 0
+        self.clothes = 0
         pygame.key.set_repeat(10)
 
     def get_event(self, event):
@@ -71,4 +72,8 @@ class HeroSprite(BaseSprite):
             if event.key == pygame.K_SPACE:
                 if 600 < x < 670 and 470 < y < 600:
                     self.rubbish = 0
+                    #self.game.sound.play()
+                elif x > 580 and y < 250:
+                    self.clothes = 0
+                    #self.game.sound.play()
         self.get_event(event)
