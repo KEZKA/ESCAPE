@@ -25,10 +25,12 @@ class Corridor(BaseGameStates):
         self.game.camera.apply(self.hero)
         for tile in self.corridor_group.sprites():
             self.game.camera.apply(tile)
-        if self.hero.general_x <= 200 and self.hero.general_y <= 210:
+        if self.hero.general_x <= 200 and self.hero.general_y <= 220:
             self.game.door = True
+        else:
+            self.game.door = False
 
-        if self.game.door:
+        if self.hero.personal_code == self.code:
             self.game.room.stop()
             self.game.corridor.stop()
             self.game.titres.start()

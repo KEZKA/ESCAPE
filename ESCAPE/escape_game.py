@@ -14,6 +14,7 @@ class MainGame(BaseGame):
     def __init__(self):
         super().__init__(700, 700)
         self.code = [str(randint(0, 9)) for i in range(4)]
+        self.personal_code = [-1, -1, -1, -1]
         self.menu = StartScreen(self)
         self.camera = Camera(self)
         self.titres = Titres(self)
