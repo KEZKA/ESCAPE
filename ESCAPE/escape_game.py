@@ -18,9 +18,9 @@ class MainGame(BaseGame):
         self.camera = Camera(self)
         self.titres = Titres(self)
         self.room = PersonalRoom(self, self.code)
-        self.corridor = Corridor(self)
-        self.all_sprites = pygame.sprite.Group()
+        self.corridor = Corridor(self, self.code)
         self.door = False
+        self.all_sprites = pygame.sprite.Group()
         self.start_menu()
 
     def start_menu(self):
@@ -33,3 +33,4 @@ class MainGame(BaseGame):
     def game(self):
         while not self.door:
             self.room.start()
+            self.corridor.start()

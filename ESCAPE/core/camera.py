@@ -23,7 +23,8 @@ class Camera:
             self.dy = 0
             if 260 < self.game.corridor.hero.general_x < 2360:
                 self.dx = -(x - self.game.width // 2 + self.game.corridor.hero.rect.w // 2)
-            elif 20 > self.game.corridor.hero.general_x and self.game.corridor.hero.general_y <= 2270:
+            elif 20 > self.game.corridor.hero.general_x and \
+                    self.game.corridor.hero.general_y <= 2270:
                 if 360 <= self.game.corridor.hero.general_y <= 380 or \
                         1060 <= self.game.corridor.hero.general_y <= 1080 or \
                         1760 <= self.game.corridor.hero.general_y <= 1780:
