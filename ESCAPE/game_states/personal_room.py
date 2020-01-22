@@ -14,11 +14,12 @@ from ESCAPE.sprites.text_sprite import TextSprite
 
 
 class PersonalRoom(BaseGameStates):
-    def __init__(self, game, code):
+    def __init__(self, game, code, save_inf=None):
         super().__init__(game)
         self.FPS = game.FPS
         self.sound = pygame.mixer.Sound(fullname('music/put.ogg'))
-
+        if save_inf:
+            self.quantity = save_inf
 
         self.hero_group = pygame.sprite.Group()
         self.crystal_group = pygame.sprite.Group()
@@ -30,10 +31,10 @@ class PersonalRoom(BaseGameStates):
         CrystalSprite(self,  20, 20, size=(30, 30), angle=10)
 
         self.hero = HeroSprite(self, 350, 350, size=(60, 120))
-        while len(self.rubbish_group) != 50:
+        while len(self.rubbish_group) != self.quantity[0]:
             x, y, angle = randint(0, 700), randint(0, 700), randint(0, 360)
             RubbishSprite(self, x, y, angle=angle)
-        while len(self.clothes_group) != 30:
+        while len(self.clothes_group) != self.quantity[1]:
             x, y, angle = randint(0, 700), randint(0, 700), randint(0, 360)
             ClothesSprite(self, x, y, angle=angle)
 

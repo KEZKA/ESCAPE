@@ -1,6 +1,7 @@
 import pygame
 
 from ESCAPE.core.base_sprite import BaseSprite
+from ESCAPE.core.utils import saving
 
 
 class HeroSprite(BaseSprite):
@@ -76,4 +77,6 @@ class HeroSprite(BaseSprite):
                 elif x > 580 and y < 250:
                     self.clothes = 0
                     self.game.sound.play()
+            if event.key == pygame.K_LSHIFT:
+                saving(len(self.game.rubbish_group), len(self.game.clothes_group))
         self.get_event(event)

@@ -33,6 +33,7 @@ class StartScreen(BaseGameStates):
         ButtonSprite(self, 200, 400, (300, 50), 'Выход', self.game.terminate)
 
 
+
     def render(self):
         super().render()
         self.screen.fill(pygame.Color('black'))
