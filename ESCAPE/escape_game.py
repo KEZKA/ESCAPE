@@ -15,14 +15,21 @@ class MainGame(BaseGame):
     def __init__(self):
         super().__init__(700, 700)
         self.code = [str(randint(0, 9)) for i in range(4)]
+        self.personal_code = [-1, -1, -1, -1]
         self.menu = StartScreen(self)
         rubbish, clothes = load_saving()
         self.camera = Camera(self)
         self.titres = Titres(self)
+<<<<<<< HEAD
         self.room = PersonalRoom(self, self.code, (rubbish, clothes))
         self.corridor = Corridor(self)
         self.all_sprites = pygame.sprite.Group()
+=======
+        self.room = PersonalRoom(self, self.code)
+        self.corridor = Corridor(self, self.code)
+>>>>>>> master
         self.door = False
+        self.all_sprites = pygame.sprite.Group()
         self.start_menu()
 
     def start_menu(self):

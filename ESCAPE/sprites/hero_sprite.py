@@ -22,6 +22,11 @@ class HeroSprite(BaseSprite):
         self.anim_fps = 10
         self.rubbish = 0
         self.clothes = 0
+        self.personal_code = [-1, -1, -1, -1]
+        self.keys = {pygame.K_0: '0', pygame.K_1: '1',
+                     pygame.K_2: '2', pygame.K_3: '3', pygame.K_4: '4',
+                     pygame.K_5: '5', pygame.K_6: '6',
+                     pygame.K_7: '7', pygame.K_8: '8', pygame.K_9: '9'}
         pygame.key.set_repeat(10)
 
     def get_event(self, event):
@@ -29,6 +34,10 @@ class HeroSprite(BaseSprite):
         if event.type == pygame.KEYDOWN:
             x, y = self.rect.x, self.rect.y
             new_x, new_y = x, y
+            if self.game.game.door:
+                if event.key in self.keys:
+                    self.personal_code.append(self.keys[event.key])
+                    self.personal_code = self.personal_code[1:]
             if event.key == pygame.K_RIGHT:
                 new_x, new_y = x + step, y
                 self.general_x += step
