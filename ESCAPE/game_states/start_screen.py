@@ -3,6 +3,7 @@ import random
 import pygame
 
 from ESCAPE.core.base_game_state import BaseGameStates
+from ESCAPE.core.utils import fullname
 from ESCAPE.sprites.button_sprite import ButtonSprite
 from ESCAPE.sprites.crystal_sprite import CrystalSprite
 
@@ -11,6 +12,8 @@ class StartScreen(BaseGameStates):
     def __init__(self, game):
         super().__init__(game)
         self.FPS = game.FPS
+        pygame.mixer.music.load(fullname('music/background.mp3'))
+        pygame.mixer.music.play(-1)
         self.crystal_group = pygame.sprite.Group()
         self.button_group = pygame.sprite.Group()
         CrystalSprite(self, 0, 400)
