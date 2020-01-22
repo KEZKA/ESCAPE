@@ -20,16 +20,10 @@ class MainGame(BaseGame):
         rubbish, clothes = load_saving()
         self.camera = Camera(self)
         self.titres = Titres(self)
-<<<<<<< HEAD
         self.room = PersonalRoom(self, self.code, (rubbish, clothes))
-        self.corridor = Corridor(self)
-        self.all_sprites = pygame.sprite.Group()
-=======
-        self.room = PersonalRoom(self, self.code)
         self.corridor = Corridor(self, self.code)
->>>>>>> master
-        self.door = False
         self.all_sprites = pygame.sprite.Group()
+        self.door = False
         self.start_menu()
 
     def start_menu(self):
