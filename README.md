@@ -11,3 +11,6 @@ escape is a planning game with the elements of plot in such genres as quest, log
 
 All the life you've spent in underground jail willingly, but you have enough ambitions to venture and commit a desperate act: to **escape**!
 To open the hatch you need 3 access giving cards that are difficult to be found, each one is kept by a concrete card-guardian. But just now it's the most fitting time to do what you've planned. So, **GOOD LUCK!**
+
+
+[скриншоты/screenshots](./screenshots)
