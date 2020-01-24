@@ -1,5 +1,7 @@
-import pygame
 from random import randint
+
+import pygame
+
 from ESCAPE.core.base_sprite import BaseSprite
 
 
@@ -10,8 +12,9 @@ class ClothesSprite(BaseSprite):
                   ['images/things/sock2.png'],
                   ['images/things/t-shirt.png'],
                   ['images/things/t-shirt.png']]
-        super().__init__(game, images[randint(0,3)], x, y, size=(50,50), angle=angle)
-        if not pygame.sprite.collide_mask(self, game.rubbish_room):
+        super().__init__(game, images[randint(0, 3)], x, y, size=(50, 50), angle=angle)
+        if not pygame.sprite.collide_mask(self, game.rubbish_room) \
+                and not pygame.sprite.spritecollideany(self, self.game.clothes_group):
             self.add(game.clothes_group)
 
     def update(self, event):

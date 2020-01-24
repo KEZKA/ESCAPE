@@ -3,7 +3,7 @@ import random
 import pygame
 
 from ESCAPE.core.base_game_state import BaseGameStates
-from ESCAPE.core.utils import fullname
+from ESCAPE.core.utils import saving
 from ESCAPE.sprites.button_sprite import ButtonSprite
 from ESCAPE.sprites.crystal_sprite import CrystalSprite
 from ESCAPE.sprites.text_sprite import TextSprite
@@ -27,8 +27,12 @@ class Titres(BaseGameStates):
         
         
         авторы: KEZKA, ridering'''
-        TextSprite(self, 0,0,(700, 600), text)
+        TextSprite(self, 0, 0, (700, 600), text)
 
+    def start(self, resaving=False):
+        if resaving:
+            saving(20, 20)
+        super().start()
 
     def render(self):
         super().render()

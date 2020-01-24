@@ -10,7 +10,8 @@ class RubbishSprite(BaseSprite):
         size = (25, 25)
 
         super().__init__(game, images, x, y, size, angle)
-        if not pygame.sprite.collide_mask(self, game.rubbish_room):
+        if not pygame.sprite.collide_mask(self, game.rubbish_room) \
+                and not pygame.sprite.spritecollideany(self, self.game.rubbish_group):
             self.add(game.rubbish_group)
 
     def update(self, event):

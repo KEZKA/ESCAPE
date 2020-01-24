@@ -31,9 +31,8 @@ class Corridor(BaseGameStates):
             self.game.door = False
 
         if self.hero.personal_code == self.code:
-            self.game.room.stop()
             self.game.corridor.stop()
-            self.game.titres.start()
+            self.game.titres.start(resaving=True)
 
     def render(self):
         super().render()
