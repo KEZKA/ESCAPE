@@ -18,7 +18,6 @@ class Notes:
         self.sprites.append(Thing(70, 50, 'images/things/pig.png'))
 
     def update(self, clothes, rubbish):
-        print(clothes, rubbish)
         if clothes <= 3 and rubbish <= 3:
             self.sprites[-1].update()
         if clothes < 2 and rubbish < 5:
