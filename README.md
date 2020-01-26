@@ -13,6 +13,9 @@ All the life you've spent in underground jail willingly, but you have enough amb
 To open the hatch, you need 3 access giving cards that are difficult to be found, each one is kept by a concrete card-guardian. But just now it's the most fitting time to do what you've planned. So, **GOOD LUCK!**
 
 
-[скриншоты/screenshots](./screenshots)
-
+[скриншоты/screenshots](./screenshots), 
 [презентация/presentation](presentation.pptx)
+
+![](./screenshots/Снимок%20экрана%202020-01-24%20в%2021.33.46.png)
+![](./screenshots/Снимок%20экрана%202020-01-24%20в%2021.34.40.png)
+![](./screenshots/Снимок%20экрана%202020-01-24%20в%2021.35.00.png)
